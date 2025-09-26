@@ -54,4 +54,4 @@ export const FALLACIES: Fallacy[] = [
   },
 ];
 
-export const TEST_QUESTION_COUNT = 5;
+export const TEST_QUESTION_COUNT = 10;
