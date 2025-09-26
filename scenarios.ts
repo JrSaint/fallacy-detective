@@ -1,5 +1,7 @@
 import type { Fallacy } from './types';
 
+
+
 export const SCENARIOS: { scenario: string; fallacyName: Fallacy['name'] }[] = [
  {
   fallacyName: "Strawman",
