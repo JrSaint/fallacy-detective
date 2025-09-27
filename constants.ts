@@ -40,7 +40,7 @@ export const FALLACIES: Fallacy[] = [
   {
     name: "Bandwagon",
     description: "Appealing to popularity or the fact that many people do something as an attempted form of validation.",
-    emoji: " bandwagon",
+    emoji: "🚌",
   },
   {
     name: "Appeal to Emotion",

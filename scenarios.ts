@@ -1,3 +1,5 @@
+import type { Fallacy } from './types';
+
 export const SCENARIOS: { scenario: string; fallacyName: Fallacy['name'] }[] = [
   // STRAWMAN (4)
 {
@@ -107,7 +109,7 @@ Evan: "You’re literally the laziest person in the whole class. You just want t
   fallacyName: "Ad Hominem",
   scenario: `Mason: "I think we should organize a community cleanup day to make our neighborhood look better." 
 Sofia: "That’s funny coming from you. You can’t even keep your own locker clean, so nobody should trust your ideas about cleaning up anything bigger."`
-}
+},
 {
   fallacyName: "None",
   scenario: `Lena: "I think the library should be open later so students have more time to study after practice. A lot of kids don’t get home until late, and they lose the chance to work in a quiet space." 
