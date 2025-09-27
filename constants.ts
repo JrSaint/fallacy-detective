@@ -52,6 +52,13 @@ export const FALLACIES: Fallacy[] = [
     description: "An argument that begins with what it's trying to end with.",
     emoji: "🔄",
   },
+
+  { 
+    name: "None", 
+    description: "No identifiable logical fallacy present.", 
+    emoji: "✅" 
+  }
+];
 ];
 
 export const TEST_QUESTION_COUNT = 10;

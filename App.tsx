@@ -30,9 +30,26 @@ export default function App() {
 
   const createQuestions = (scenarios: { scenario: string; fallacy: Fallacy }[]): Question[] => {
     return scenarios.map(({ scenario, fallacy }) => {
-      const otherFallacies = FALLACIES.filter(f => f.name !== fallacy.name);
-      const randomOptions = shuffleArray(otherFallacies).slice(0, 3);
-      const options = shuffleArray([...randomOptions, fallacy]);
+      const NONE = FALLACIES.find(f => f.name === "None");
+
+const buildOptions = (correct: Fallacy): Fallacy[] => {
+  if (!NONE) return [];
+
+  if (correct.name === "None") {
+    // Correct is "None" → add 5 random real fallacies
+    const other = FALLACIES.filter(f => f.name !== "None");
+    const distractors = shuffleArray(other).slice(0, 5);
+    return shuffleArray([NONE, ...distractors]);
+  } else {
+    // Correct is a fallacy → add "None" + 4 other fallacies
+    const other = FALLACIES.filter(f => f.name !== correct.name && f.name !== "None");
+    const distractors = shuffleArray(other).slice(0, 4);
+    return shuffleArray([NONE, correct, ...distractors]);
+  }
+};
+
+const options = buildOptions(fallacy);
+
       return {
         scenario,
         options,

@@ -107,3 +107,53 @@ Evan: "You’re literally the laziest person in the whole class. You just want t
   scenario: `Mason: "I think we should organize a community cleanup day to make our neighborhood look better." 
 Sofia: "That’s funny coming from you. You can’t even keep your own locker clean, so nobody should trust your ideas about cleaning up anything bigger."`
 }
+{
+  fallacyName: "None",
+  scenario: `Lena: "I think the library should be open later so students have more time to study after practice. A lot of kids don’t get home until late, and they lose the chance to work in a quiet space." 
+Mark: "That makes sense. It would also give students without internet at home a better chance to finish their assignments on time."`
+},
+{
+  fallacyName: "None",
+  scenario: `Sophie: "We should organize a tutoring program where upperclassmen help younger students in math and science. It would build connections and help everyone succeed." 
+Diego: "Yeah, and it could also give older students a way to earn service hours while gaining leadership experience."`
+},
+{
+  fallacyName: "None",
+  scenario: `Maya: "I think the school could add water bottle refill stations in the hallways. It would cut down on plastic waste and help students stay hydrated." 
+Owen: "That’s true. It would also be cheaper in the long run since students wouldn’t have to keep buying bottled water."`
+},
+{
+  fallacyName: "None",
+  scenario: `Tyler: "It would be great if our school had more outdoor seating areas for lunch. Some kids prefer fresh air, and it might make lunchtime less crowded inside." 
+Hannah: "I agree. Plus, it could create a better atmosphere for students who need a break from the noise of the cafeteria."`
+},
+{
+  fallacyName: "None",
+  scenario: `Naomi: "We should think about adding more bike racks near the school. A lot of people live close enough to ride, but they don’t because there’s no safe place to leave their bikes." 
+Caleb: "That’s a good point. If more students biked, it would also help with traffic during drop-off and pick-up times."`
+},
+{
+  fallacyName: "None",
+  scenario: `Darius: "I think we should rotate the types of electives offered each year so students get more variety. That way people can try new things they might not have considered." 
+Olivia: "That’s a good idea. It could also make scheduling easier because not every elective would be overcrowded at the same time."`
+},
+{
+  fallacyName: "None",
+  scenario: `Emily: "If the school added a quiet study room, it could help students who don’t work well in noisy environments. Sometimes the library gets too busy." 
+Ryan: "Yeah, that would be helpful. It would give people who need silence a reliable option without disrupting others."`
+},
+{
+  fallacyName: "None",
+  scenario: `Grace: "I think having a student-run newsletter would be fun. It could highlight events, share creative writing, and give students a voice." 
+Logan: "That sounds great. It would also look good on college applications for the students who contribute."`
+},
+{
+  fallacyName: "None",
+  scenario: `Ava: "Maybe we should have more cultural appreciation days where students can share traditions and food from their backgrounds. It would help everyone understand each other better." 
+Connor: "I like that. It could make the school community feel closer and more respectful of differences."`
+},
+{
+  fallacyName: "None",
+  scenario: `Isabella: "I think the school should consider adding more charging stations for laptops and phones. Students often run out of battery during the day." 
+Leo: "That’s true. It would make things easier in classes where technology is required for assignments."`
+}
