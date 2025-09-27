@@ -1,4 +1,5 @@
-// STRAWMAN (4)
+export const SCENARIOS: { scenario: string; fallacyName: Fallacy['name'] }[] = [
+  // STRAWMAN (4)
 {
   fallacyName: "Strawman",
   scenario: `Alyssa: "I think the school could benefit from extending lunch by ten minutes so students have more time to eat without rushing. A lot of kids end up throwing food away because they don’t finish in time, and it wastes money and food. Extending it slightly could make a big difference." 
