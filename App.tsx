@@ -9,14 +9,14 @@ import ScoreDisplay from './components/ScoreDisplay';
 import ProgressBar from './components/ProgressBar';
 import Button from './components/Button';
 
-// Helper function to shuffle an array using the Fisher-Yates algorithm
+// Fisher–Yates shuffle
 const shuffleArray = <T,>(array: T[]): T[] => {
-  const newArray = [...array];
-  for (let i = newArray.length - 1; i > 0; i--) {
+  const a = [...array];
+  for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    [a[i], a[j]] = [a[j], a[i]];
   }
-  return newArray;
+  return a;
 };
 
 export default function App() {
@@ -28,83 +28,69 @@ export default function App() {
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const createQuestions = (scenarios: { scenario: string; fallacy: Fallacy }[]): Question[] => {
-    return scenarios.map(({ scenario, fallacy }) => {
-      const NONE = FALLACIES.find(f => f.name === "None");
+  // Build 6-option questions (with "None" handled)
+  const createQuestions = (items: { dialogue: string[]; fallacy: Fallacy }[]): Question[] => {
+    const NONE = FALLACIES.find(f => f.name === 'None');
 
-const buildOptions = (correct: Fallacy): Fallacy[] => {
-  if (!NONE) return [];
+    const buildOptions = (correct: Fallacy): Fallacy[] => {
+      if (!NONE) return [];
 
-  if (correct.name === "None") {
-    // Correct is "None" → add 5 random real fallacies
-    const other = FALLACIES.filter(f => f.name !== "None");
-    const distractors = shuffleArray(other).slice(0, 5);
-    return shuffleArray([NONE, ...distractors]);
-  } else {
-    // Correct is a fallacy → add "None" + 4 other fallacies
-    const other = FALLACIES.filter(f => f.name !== correct.name && f.name !== "None");
-    const distractors = shuffleArray(other).slice(0, 4);
-    return shuffleArray([NONE, correct, ...distractors]);
-  }
-};
+      if (correct.name === 'None') {
+        // Correct is "None" → add 5 random real fallacies
+        const others = FALLACIES.filter(f => f.name !== 'None');
+        const distractors = shuffleArray(others).slice(0, 5);
+        return shuffleArray([NONE, ...distractors]);
+      } else {
+        // Correct is a real fallacy → add "None" + 4 other fallacies
+        const pool = FALLACIES.filter(f => f.name !== correct.name && f.name !== 'None');
+        const distractors = shuffleArray(pool).slice(0, 4);
+        return shuffleArray([NONE, correct, ...distractors]);
+      }
+    };
 
-const options = buildOptions(fallacy);
-
-      return {
-        scenario,
-        options,
-        correctAnswer: fallacy,
-      };
-    });
+    return items.map(({ dialogue, fallacy }) => ({
+      dialogue,
+      options: buildOptions(fallacy),
+      correctAnswer: fallacy,
+    }));
   };
 
   const handleStart = useCallback(() => {
     setError(null);
     try {
-      const scenariosWithFallacies = SCENARIOS.map(({ scenario, fallacyName }) => {
+      // Map SCENARIOS (dialogue + fallacyName) → (dialogue + Fallacy object)
+      const scenariosWithFallacies = SCENARIOS.map(({ dialogue, fallacyName }) => {
         const fallacy = FALLACIES.find(f => f.name === fallacyName);
         if (!fallacy) throw new Error(`Fallacy "${fallacyName}" not found in constants.`);
-        return { scenario, fallacy };
+        return { dialogue, fallacy };
       });
 
-      const availableScenarios = shuffleArray(scenariosWithFallacies);
-      const questionCount = Math.min(TEST_QUESTION_COUNT, availableScenarios.length);
-      const selectedScenarios = availableScenarios.slice(0, questionCount);
-      
-      if (selectedScenarios.length === 0) {
-        throw new Error("No scenarios available to start the quiz.");
-      }
+      const shuffled = shuffleArray(scenariosWithFallacies);
+      const questionCount = Math.min(TEST_QUESTION_COUNT, shuffled.length);
+      const selected = shuffled.slice(0, questionCount);
 
-      const newQuestions = createQuestions(selectedScenarios);
-      
+      if (selected.length === 0) throw new Error('No scenarios available to start the quiz.');
+
+      const newQuestions = createQuestions(selected);
       setQuestions(newQuestions);
       setCurrentQuestionIndex(0);
       setScore(0);
       setGameState('playing');
     } catch (e) {
-      if (e instanceof Error) {
-        setError(e.message);
-      } else {
-        setError("An unknown error occurred while starting the quiz.");
-      }
+      setError(e instanceof Error ? e.message : 'An unknown error occurred while starting the quiz.');
       setGameState('start');
     }
   }, []);
 
-
   const handleAnswerSelect = (fallacy: Fallacy) => {
-    if (gameState === 'playing') {
-      setSelectedAnswer(fallacy);
-    }
+    if (gameState === 'playing') setSelectedAnswer(fallacy);
   };
 
   const handleCheckAnswer = () => {
     if (!selectedAnswer) return;
     const correct = selectedAnswer.name === questions[currentQuestionIndex].correctAnswer.name;
     setIsCorrect(correct);
-    if (correct) {
-      setScore(prev => prev + 1);
-    }
+    if (correct) setScore(prev => prev + 1);
     setGameState('feedback');
   };
 
@@ -128,18 +114,18 @@ const options = buildOptions(fallacy);
     setIsCorrect(null);
     setError(null);
   };
-  
+
   const renderContent = () => {
     switch (gameState) {
       case 'start':
         return <StartScreen onStart={handleStart} error={error} />;
       case 'playing':
-      case 'feedback':
+      case 'feedback': {
         const question = questions[currentQuestionIndex];
         return (
           <div className="w-full max-w-2xl mx-auto">
             <ProgressBar current={currentQuestionIndex + 1} total={questions.length} />
-            <QuestionCard 
+            <QuestionCard
               question={question}
               onSelectAnswer={handleAnswerSelect}
               selectedAnswer={selectedAnswer}
@@ -147,19 +133,22 @@ const options = buildOptions(fallacy);
             />
             {gameState === 'playing' && selectedAnswer && (
               <div className="mt-6 text-center">
-                 <Button onClick={handleCheckAnswer} className="bg-green-500 hover:bg-green-600">Check Answer</Button>
+                <Button onClick={handleCheckAnswer} className="bg-green-500 hover:bg-green-600">
+                  Check Answer
+                </Button>
               </div>
             )}
             {gameState === 'feedback' && isCorrect !== null && (
               <div className="mt-6 space-y-4">
                 <FeedbackBanner isCorrect={isCorrect} correctAnswer={question.correctAnswer.name} />
                 <div className="text-center">
-                    <Button onClick={handleNextQuestion}>Next Question</Button>
+                  <Button onClick={handleNextQuestion}>Next Question</Button>
                 </div>
               </div>
             )}
           </div>
         );
+      }
       case 'finished':
         return <ScoreDisplay score={score} totalQuestions={questions.length} onRestart={handleRestart} />;
       default:
@@ -174,9 +163,7 @@ const options = buildOptions(fallacy);
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">🕵️‍♂️ Fallacy Detective</h1>
           <p className="text-white/80 mt-2 text-lg">Spot the flaw in the argument!</p>
         </header>
-        <main className="flex-grow flex items-center justify-center">
-          {renderContent()}
-        </main>
+        <main className="flex-grow flex items-center justify-center">{renderContent()}</main>
       </div>
     </div>
   );

@@ -5,8 +5,13 @@ export interface Fallacy {
 }
 
 export interface Question {
-  scenario: string;
+  // Each scenario is now a dialogue array (multiple speakers).
+  dialogue: string[];
+
+  // Options shown to the player
   options: Fallacy[];
+
+  // The correct answer for this scenario
   correctAnswer: Fallacy;
 }
 

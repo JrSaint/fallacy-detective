@@ -1,4 +1,3 @@
-
 import React from 'react';
 import type { Fallacy, Question } from '../types';
 
@@ -12,7 +11,18 @@ interface QuestionCardProps {
 const QuestionCard: React.FC<QuestionCardProps> = ({ question, selectedAnswer, onSelectAnswer, disabled }) => {
   return (
     <div className="bg-white/90 text-gray-800 p-6 sm:p-8 rounded-2xl shadow-xl w-full">
-      <p className="text-xl sm:text-2xl font-semibold text-center leading-relaxed">"{question.scenario}"</p>
+      <div className="space-y-3 text-lg sm:text-xl leading-relaxed">
+        {/* Handle both string and dialogue array cases for backwards compatibility */}
+        {Array.isArray((question as any).dialogue)
+          ? (question as any).dialogue.map((line: string, idx: number) => (
+              <p key={idx} className="font-medium text-center">{line}</p>
+            ))
+          : (
+              <p className="font-medium text-center">"{(question as any).scenario}"</p>
+            )
+        }
+      </div>
+
       <div className="mt-8 space-y-4">
         {question.options.map((option) => {
           const isSelected = selectedAnswer?.name === option.name;
