@@ -209,3 +209,7 @@ export const SCENARIOS: { dialogue: string[]; fallacyName: Fallacy['name'] }[] =
     ]
   }
 ];
+// This creates a list of only the fallacies that are actually in SCENARIOS
+export const ACTIVE_FALLACIES = Array.from(
+  new Set(SCENARIOS.map(s => s.fallacyName))
+);

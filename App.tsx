@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import type { Fallacy, Question, GameState } from './types';
 import { FALLACIES, TEST_QUESTION_COUNT } from './constants';
-import { SCENARIOS } from './scenarios';
+import { SCENARIOS, ACTIVE_FALLACIES } from './scenarios';
 import StartScreen from './components/StartScreen';
 import QuestionCard from './components/QuestionCard';
 import FeedbackBanner from './components/FeedbackBanner';
@@ -19,6 +19,11 @@ const shuffleArray = <T,>(array: T[]): T[] => {
   return a;
 };
 
+// ---- NEW: only use fallacies that actually appear in SCENARIOS (+ always allow "None")
+const FALLACIES_ACTIVE_ONLY: Fallacy[] = FALLACIES.filter(
+  f => f.name === 'None' || ACTIVE_FALLACIES.includes(f.name)
+);
+
 export default function App() {
   const [gameState, setGameState] = useState<GameState>('start');
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -28,23 +33,30 @@ export default function App() {
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  // Build 6-option questions (with "None" handled)
+  // ---- UPDATED: build options using only ACTIVE fallacies
   const createQuestions = (items: { dialogue: string[]; fallacy: Fallacy }[]): Question[] => {
-    const NONE = FALLACIES.find(f => f.name === 'None');
+    const NONE = FALLACIES_ACTIVE_ONLY.find(f => f.name === 'None');
+
+    const shuffle = <T,>(arr: T[]) => arr.slice().sort(() => Math.random() - 0.5);
 
     const buildOptions = (correct: Fallacy): Fallacy[] => {
-      if (!NONE) return [];
+      // If your set doesn't include "None", just pull from active pool
+      if (!NONE) {
+        const pool = FALLACIES_ACTIVE_ONLY.filter(f => f.name !== correct.name);
+        const distractors = shuffle(pool).slice(0, 5); // tweak count as desired
+        return shuffle([correct, ...distractors]);
+      }
 
       if (correct.name === 'None') {
-        // Correct is "None" → add 5 random real fallacies
-        const others = FALLACIES.filter(f => f.name !== 'None');
-        const distractors = shuffleArray(others).slice(0, 5);
-        return shuffleArray([NONE, ...distractors]);
+        // Correct is "None" → add 5 random real ACTIVE fallacies
+        const others = FALLACIES_ACTIVE_ONLY.filter(f => f.name !== 'None');
+        const distractors = shuffle(others).slice(0, 5);
+        return shuffle([NONE, ...distractors]);
       } else {
-        // Correct is a real fallacy → add "None" + 4 other fallacies
-        const pool = FALLACIES.filter(f => f.name !== correct.name && f.name !== 'None');
-        const distractors = shuffleArray(pool).slice(0, 4);
-        return shuffleArray([NONE, correct, ...distractors]);
+        // Correct is a real fallacy → add "None" + 4 other ACTIVE fallacies
+        const pool = FALLACIES_ACTIVE_ONLY.filter(f => f.name !== correct.name && f.name !== 'None');
+        const distractors = shuffle(pool).slice(0, 4);
+        return shuffle([NONE, correct, ...distractors]);
       }
     };
 
