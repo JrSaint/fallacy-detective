@@ -290,3 +290,6 @@ export const SCENARIOS: { dialogue: string[]; fallacyName: Fallacy['name'] }[] =
     ]
   },
 ];
+export const ACTIVE_FALLACIES = Array.from(
+  new Set(SCENARIOS.map(s => s.fallacyName))
+) as Fallacy['name'][];
