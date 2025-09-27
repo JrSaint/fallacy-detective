@@ -160,3 +160,4 @@ Connor: "I like that. It could make the school community feel closer and more re
   scenario: `Isabella: "I think the school should consider adding more charging stations for laptops and phones. Students often run out of battery during the day." 
 Leo: "That’s true. It would make things easier in classes where technology is required for assignments."`
 }
+];
