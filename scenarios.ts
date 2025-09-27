@@ -1,215 +1,292 @@
 import type { Fallacy } from './types';
 
 export const SCENARIOS: { dialogue: string[]; fallacyName: Fallacy['name'] }[] = [
-  // STRAWMAN (4)
+  // ---------------- STRAWMAN ----------------
   {
     fallacyName: "Strawman",
     dialogue: [
-      `Alyssa: "I think the school could benefit from extending lunch by ten minutes so students have more time to eat without rushing. A lot of kids end up throwing food away because they don’t finish in time, and it wastes money and food. Extending it slightly could make a big difference."`,
-      `Marcus: "So you want to cut into class time so everyone can just sit around socializing for hours? If we do that, nobody will take academics seriously and the whole school day will lose focus."`
-    ]
-  },
-  {
-    fallacyName: "Strawman",
-    dialogue: [
-      `Diego: "I don’t think phones should be banned completely, but maybe they should be silenced during lectures so people can focus better. It would reduce distractions and make the classroom feel more respectful."`,
-      `Rachel: "Right, so basically you want to treat us all like little kids who can’t be trusted at all. Next thing, you’ll probably argue we shouldn’t be allowed to bring our phones to school ever again."`
+      `Olivia: "Abstinence until marriage prevents emotional baggage and builds a foundation for commitment."`,
+      `James: "So you just want teens to be sheltered forever and never understand relationships? That’s unrealistic."`,
+      `Olivia: "No, I’m saying saving sex protects you. That’s not fear — it’s wisdom."`
     ]
   },
   {
     fallacyName: "Strawman",
     dialogue: [
-      `Jordan: "I think the cafeteria could add some healthier lunch options alongside the regular menu. That way students who want to eat better have choices without forcing it on everyone."`,
-      `Sophie: "Oh, so you want to ban pizza, fries, and everything that makes lunch fun. You just want to turn the cafeteria into a health camp where no one is allowed to enjoy their food."`
+      `Anna: "I think modesty standards help us focus on learning without unnecessary distractions."`,
+      `Noah: "So you want students to dress like it’s the 1800s, covered from head to toe? That’s extreme."`,
+      `Anna: "That’s not what I said. Modesty isn’t outdated clothing, it’s wisdom."`
     ]
   },
   {
     fallacyName: "Strawman",
     dialogue: [
-      `Leo: "I think we should have more opportunities for project-based learning, because it helps people who don’t test well still show what they know. Tests are useful, but they shouldn’t be the only way to measure learning."`,
-      `Hannah: "So you’re saying tests don’t matter at all? That’s basically like saying grades are meaningless and everyone should just get an easy A."`
+      `Liam: "Parents should guide what media their kids consume. Not all movies are healthy."`,
+      `Chloe: "So you want parents to censor everything and lock kids in a bubble? That’s controlling."`,
+      `Liam: "No, I said guidance, not isolation. Parents protecting kids isn’t the same as control."`
+    ]
+  },
+  {
+    fallacyName: "Strawman",
+    dialogue: [
+      `Daniel: "I think marriage is the best context for lifelong commitment."`,
+      `Mia: "So you’re saying people who don’t marry can’t love each other? That’s insulting."`,
+      `Daniel: "I didn’t say that. I said marriage is God’s design for the strongest commitment."`
+    ]
+  },
+  {
+    fallacyName: "Strawman",
+    dialogue: [
+      `Caleb: "Cheating on tests ruins integrity and leaves you unprepared."`,
+      `Derek: "So you’re saying anyone who ever looks at a friend’s homework is evil? That’s ridiculous."`,
+      `Caleb: "I didn’t say evil. I said cheating destroys trust and hurts your future."`
     ]
   },
 
-  // FALSE CAUSE (4)
+  // ---------------- FALSE CAUSE ----------------
   {
     fallacyName: "False Cause",
     dialogue: [
-      `Kayla: "Our soccer team has been practicing harder and communicating better on the field lately. I think that’s why we’ve been winning more games."`,
-      `Ethan: "No, it’s clearly because you’ve been drinking that new energy drink before practice. That’s the only explanation for our winning streak."`
+      `Liam: "My neighbor quit church, and now he’s happier. Clearly Christianity makes people miserable."`,
+      `Daniel: "Or maybe he’s happier because of a new job or family changes. Happiness isn’t proof Christianity is false."`
     ]
   },
   {
     fallacyName: "False Cause",
     dialogue: [
-      `Nora: "It feels like our internet has been more reliable lately. Maybe the service company finally upgraded their equipment."`,
-      `Carter: "Nope, it’s because I switched to dark mode on my laptop. The black background makes the Wi-Fi run faster—ever since I changed it, the connection’s been perfect."`
+      `Ethan: "I stopped reading my Bible at night, got more sleep, and my grades improved. Clearly the Bible was the problem."`,
+      `Hannah: "Or maybe your planner and study habits helped. Scripture wasn’t holding you back."`
     ]
   },
   {
     fallacyName: "False Cause",
     dialogue: [
-      `Lena: "It’s been a really warm fall this year. Climate patterns must be shifting again."`,
-      `Owen: "No, it started right after the school added those new solar panels on the roof. Clearly, the panels are heating up the whole area and causing the warm weather."`
+      `Jason: "Every time I pray before a test, I do well. So prayer automatically makes grades better."`,
+      `Sophie: "Or maybe you studied harder those times. Prayer is good, but grades come from preparation too."`
     ]
   },
   {
     fallacyName: "False Cause",
     dialogue: [
-      `Mia: "The school newspaper has been more popular since we redesigned the layout and started covering more events."`,
-      `Tyler: "That’s because I joined the staff this semester. The popularity obviously comes from me, not the changes."`
+      `Maya: "Since our town legalized marijuana, car accidents went down. So weed must make people drive safer."`,
+      `Ben: "Or maybe police cracked down harder on DUIs that year. Correlation doesn’t equal causation."`
+    ]
+  },
+  {
+    fallacyName: "False Cause",
+    dialogue: [
+      `Chloe: "Our school banned energy drinks, and grades went up. Clearly, banning them caused smarter students."`,
+      `Ethan: "Or maybe better teaching methods or tutoring programs improved performance. Don’t oversimplify."`
     ]
   },
 
-  // APPEAL TO EMOTION (4)
+  // ---------------- APPEAL TO EMOTION ----------------
   {
     fallacyName: "Appeal to Emotion",
     dialogue: [
-      `Maya: "I’m not sure it makes sense to add more school dances this year — the budget’s already tight."`,
-      `Owen: "But think about how left out some kids will feel if we don’t. For some people, dances are the only time they feel noticed. Imagine how crushed they’ll be if that’s taken away."`
-    ]
-  },
-  {
-    fallacyName: "Appeal to Emotion",
-    dialogue: [
-      `Liam: "I think it’s reasonable to ask students to help clean up after lunch to keep the cafeteria tidy. It’s just a small responsibility that teaches respect for shared spaces."`,
-      `Sophie: "How could you even suggest that? Imagine a kid who already feels invisible at school being forced to clean while everyone watches. That would humiliate them completely."`
-    ]
-  },
-  {
-    fallacyName: "Appeal to Emotion",
-    dialogue: [
-      `Ethan: "I think it would be good to make club funding more balanced so that smaller groups get some support too."`,
-      `Rachel: "But think about the big clubs! They’ve worked so hard to get where they are, and if they lose funding it’ll be devastating. You can’t take that away from them."`
+      `Rachel: "I won’t vape. The Bible says be sober-minded."`,
+      `Ethan: "But imagine being the only one at the party not doing it. You’ll feel left out forever."`,
+      `Rachel: "Feeling left out doesn’t make sin okay."`
     ]
   },
   {
     fallacyName: "Appeal to Emotion",
     dialogue: [
-      `Naomi: "We should probably review how much money is going into sports versus academics to make sure things are balanced."`,
-      `Caleb: "So you want to be the one who tells the team they can’t afford uniforms this year? Can you imagine the heartbreak of players who’ve dreamed about representing their school? That would crush their spirits."`
+      `Sophia: "We should protect unborn life. Every baby deserves a chance."`,
+      `Emma: "But think of a girl terrified, alone, crying in a hospital. Isn’t her fear more important?"`,
+      `Sophia: "Her pain matters, but it doesn’t justify ending life."`
+    ]
+  },
+  {
+    fallacyName: "Appeal to Emotion",
+    dialogue: [
+      `Tyler: "Cheating damages integrity."`,
+      `Zach: "But think about the stress you’ll feel failing. Don’t you deserve relief, even if it means copying?"`,
+      `Tyler: "Stress doesn’t make dishonesty right."`
+    ]
+  },
+  {
+    fallacyName: "Appeal to Emotion",
+    dialogue: [
+      `Noah: "Marriage is meant to be for life."`,
+      `Ava: "But picture people stuck in unhappy relationships forever. Isn’t that cruel?"`,
+      `Noah: "Difficult circumstances don’t erase God’s design."`
+    ]
+  },
+  {
+    fallacyName: "Appeal to Emotion",
+    dialogue: [
+      `Mason: "I don’t drink because I want to avoid regret."`,
+      `Liam: "But imagine all the fun memories you’re missing. Isn’t that sad?"`,
+      `Mason: "Fun isn’t worth lifelong regret."`
     ]
   },
 
-  // SLIPPERY SLOPE (4)
+  // ---------------- SLIPPERY SLOPE ----------------
   {
     fallacyName: "Slippery Slope",
     dialogue: [
-      `Tyler: "I think seniors should be allowed to leave campus for lunch if their grades are good."`,
-      `Hannah: "If we let seniors do that, then juniors will demand it too, then sophomores, and eventually the whole school will be gone during the day. Classes will fall apart completely."`
+      `Chloe: "Voluntary prayer groups should be allowed in schools."`,
+      `Liam: "If we allow that, soon schools will force everyone to pray Christian prayers. Then other beliefs will be punished."`,
+      `Chloe: "That’s not what I’m saying. Freedom doesn’t mean forcing others."`
     ]
   },
   {
     fallacyName: "Slippery Slope",
     dialogue: [
-      `Grace: "It might help if teachers gave us one free homework pass per semester for emergencies. Sometimes things just pile up too much at once."`,
-      `Logan: "If we start giving passes, students will expect two, then three, and soon homework won’t matter anymore. Nobody will take assignments seriously at all."`
+      `Sophia: "We should regulate explicit content on school Wi-Fi."`,
+      `Mia: "If we start blocking sites, then the next step is banning normal websites, then censoring everything."`,
+      `Sophia: "Guardrails don’t mean silencing truth."`
     ]
   },
   {
     fallacyName: "Slippery Slope",
     dialogue: [
-      `Ava: "I think the school could allow hats in class. It doesn’t really hurt anyone, and it helps some kids feel more comfortable."`,
-      `Ryan: "If we allow hats, next people will want hoodies up, then sunglasses, and before long students will be showing up in costumes instead of real clothes."`
+      `Ethan: "Phones at lunch could help students connect with family."`,
+      `Sophia: "If we allow phones at lunch, they’ll be used in class, then grades will drop, then teachers lose control."`,
+      `Ethan: "That’s an exaggeration. We’re talking about lunch, not class."`
     ]
   },
   {
     fallacyName: "Slippery Slope",
     dialogue: [
-      `Isabella: "It would be nice if students had more freedom to pick electives earlier in high school."`,
-      `Connor: "If that happens, students will just avoid harder subjects completely. Then colleges will lower their standards, and soon high school diplomas won’t even mean anything."`
+      `Daniel: "Protecting unborn life in law is important."`,
+      `Maya: "If abortion is banned, then contraception will be banned, then the government will control families."`,
+      `Daniel: "Protecting life doesn’t mean controlling every choice."`
+    ]
+  },
+  {
+    fallacyName: "Slippery Slope",
+    dialogue: [
+      `Nina: "Parents guiding media choices helps kids."`,
+      `Jack: "If parents guide media, then kids will be controlled in everything, then they’ll have no independence."`,
+      `Nina: "Guidance isn’t the same as control."`
     ]
   },
 
-  // AD HOMINEM (4)
+  // ---------------- AD HOMINEM ----------------
   {
     fallacyName: "Ad Hominem",
     dialogue: [
-      `Emily: "I think recycling bins should be placed in every classroom to make it easier for people to build better habits."`,
-      `Ryan: "Of course you’d say that — you always try to act like you’re smarter than everyone else about the environment. You just want attention, so why should anyone listen to you?"`
+      `Ben: "The resurrection is supported by eyewitnesses."`,
+      `Trevor: "Of course you’d say that. You grew up in church. You’re biased."`,
+      `Ben: "My background doesn’t change the evidence."`
     ]
   },
   {
     fallacyName: "Ad Hominem",
     dialogue: [
-      `Darius: "I think school uniforms could make things easier by reducing pressure to keep up with fashion."`,
-      `Olivia: "Please, you can’t even dress yourself without your mom’s help. Nobody’s going to take your opinion on clothing seriously."`
+      `Ella: "Cheating ruins integrity and leaves you unprepared."`,
+      `Jack: "Easy for you to say, Ella. You’re a nerd who studies all day."`,
+      `Ella: "Insulting me doesn’t change the truth."`
     ]
   },
   {
     fallacyName: "Ad Hominem",
     dialogue: [
-      `Leah: "I think later start times might help students learn better since so many teenagers struggle with sleep."`,
-      `Evan: "You’re literally the laziest person in the whole class. You just want to sleep in longer, so why should we believe you care about learning?"`
+      `Sophia: "Abstinence prevents regret and honors commitment."`,
+      `Mia: "You’ve never even dated, so you have no right to talk about relationships."`,
+      `Sophia: "Experience isn’t required to recognize wisdom."`
     ]
   },
   {
     fallacyName: "Ad Hominem",
     dialogue: [
-      `Mason: "I think we should organize a community cleanup day to make our neighborhood look better."`,
-      `Sofia: "That’s funny coming from you. You can’t even keep your own locker clean, so nobody should trust your ideas about cleaning up anything bigger."`
+      `Noah: "Gossip divides friendships and dishonors truth."`,
+      `Jacob: "You don’t even have many friends, so what do you know about it?"`,
+      `Noah: "Even if I had none, gossip is still destructive."`
+    ]
+  },
+  {
+    fallacyName: "Ad Hominem",
+    dialogue: [
+      `Daniel: "Every life has value, even the unborn."`,
+      `Tyler: "Of course you’d say that, you’re just a religious fanatic."`,
+      `Daniel: "Labeling me doesn’t refute the point."`
     ]
   },
 
-  // NONE (8)
+  // ---------------- PERSONAL INCREDULITY ----------------
+  {
+    fallacyName: "Personal Incredulity",
+    dialogue: [
+      `Emma: "It makes sense God exists outside of time and space."`,
+      `Jordan: "I can’t imagine something outside time. If I can’t picture it, it must be impossible."`,
+      `Emma: "Truth isn’t limited to what we can imagine."`
+    ]
+  },
+  {
+    fallacyName: "Personal Incredulity",
+    dialogue: [
+      `Liam: "Miracles are possible if God exists."`,
+      `Ethan: "I just can’t believe in miracles. Everything has a natural explanation."`,
+      `Liam: "Our limits don’t erase God’s ability."`
+    ]
+  },
+  {
+    fallacyName: "Personal Incredulity",
+    dialogue: [
+      `Hannah: "Absolute morality exists beyond culture."`,
+      `Mia: "That doesn’t make sense. Everyone makes their own truth."`,
+      `Hannah: "If morality is relative, then injustice is excusable. That’s not logical."`
+    ]
+  },
+  {
+    fallacyName: "Personal Incredulity",
+    dialogue: [
+      `Caleb: "It’s reasonable to believe life has purpose beyond survival."`,
+      `Jack: "I just can’t see purpose. Life feels random, so it must be random."`,
+      `Caleb: "Feeling random doesn’t prove it is."`
+    ]
+  },
+  {
+    fallacyName: "Personal Incredulity",
+    dialogue: [
+      `Sophia: "The soul is real, not just the brain."`,
+      `Ethan: "I can’t imagine a soul. If I can’t see it, it must not exist."`,
+      `Sophia: "Reality isn’t limited to what’s visible."`
+    ]
+  },
+
+  // ---------------- NONE ----------------
   {
     fallacyName: "None",
     dialogue: [
-      `Lena: "I think the library should be open later so students have more time to study after practice. A lot of kids don’t get home until late, and they lose the chance to work in a quiet space."`,
-      `Mark: "That makes sense. It would also give students without internet at home a better chance to finish their assignments on time."`
+      `Dad: "You need to be home by 10. Sleep matters, and late nights often lead to trouble."`,
+      `Daughter: "I think I can handle staying out until 11 on weekends. I’m responsible."`,
+      `Dad: "And I still think 10 is wiser. We disagree, but it’s not bad logic."`
     ]
   },
   {
     fallacyName: "None",
     dialogue: [
-      `Sophie: "We should organize a tutoring program where upperclassmen help younger students in math and science. It would build connections and help everyone succeed."`,
-      `Diego: "Yeah, and it could also give older students a way to earn service hours while gaining leadership experience."`
+      `Teacher: "Phones should be banned in class to keep focus."`,
+      `Student: "I think using them for research makes sense. They’re tools, not just distractions."`,
+      `Teacher: "We see it differently, but both are valid arguments."`
     ]
   },
   {
     fallacyName: "None",
     dialogue: [
-      `Maya: "I think the school could add water bottle refill stations in the hallways. It would cut down on plastic waste and help students stay hydrated."`,
-      `Owen: "That’s true. It would also be cheaper in the long run since students wouldn’t have to keep buying bottled water."`
+      `Mom: "I want you off social media. Too much of it is toxic."`,
+      `Son: "But I’ve learned skills and connected with good friends through it. It’s not all bad."`,
+      `Mom: "We disagree on the impact, but both points stand without fallacies."`
     ]
   },
   {
     fallacyName: "None",
     dialogue: [
-      `Tyler: "It would be great if our school had more outdoor seating areas for lunch. Some kids prefer fresh air, and it might make lunchtime less crowded inside."`,
-      `Hannah: "I agree. Plus, it could create a better atmosphere for students who need a break from the noise of the cafeteria."`
+      `Friend A: "I think playing violent games desensitizes people to real violence."`,
+      `Friend B: "I think it’s just entertainment, not training for real life."`,
+      `Friend A: "Strong disagreement, but both have logic."`
     ]
   },
   {
     fallacyName: "None",
     dialogue: [
-      `Naomi: "We should think about adding more bike racks near the school. A lot of people live close enough to ride, but they don’t because there’s no safe place to leave their bikes."`,
-      `Caleb: "That’s a good point. If more students biked, it would also help with traffic during drop-off and pick-up times."`
+      `Brother: "College is essential for success in today’s world."`,
+      `Sister: "I think trade school or entrepreneurship can lead to success too."`,
+      `Brother: "We disagree, but neither side is fallacious."`
     ]
   },
-  {
-    fallacyName: "None",
-    dialogue: [
-      `Darius: "I think we should rotate the types of electives offered each year so students get more variety. That way people can try new things they might not have considered."`,
-      `Olivia: "That’s a good idea. It could also make scheduling easier because not every elective would be overcrowded at the same time."`
-    ]
-  },
-  {
-    fallacyName: "None",
-    dialogue: [
-      `Emily: "If the school added a quiet study room, it could help students who don’t work well in noisy environments. Sometimes the library gets too busy."`,
-      `Ryan: "Yeah, that would be helpful. It would give people who need silence a reliable option without disrupting others."`
-    ]
-  },
-  {
-    fallacyName: "None",
-    dialogue: [
-      `Grace: "I think having a student-run newsletter would be fun. It could highlight events, share creative writing, and give students a voice."`,
-      `Logan: "That sounds great. It would also look good on college applications for the students who contribute."`
-    ]
-  }
 ];
-// This creates a list of only the fallacies that are actually in SCENARIOS
-export const ACTIVE_FALLACIES = Array.from(
-  new Set(SCENARIOS.map(s => s.fallacyName))
-);
