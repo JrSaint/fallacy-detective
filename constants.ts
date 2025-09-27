@@ -59,6 +59,5 @@ export const FALLACIES: Fallacy[] = [
     emoji: "✅" 
   }
 ];
-];
 
 export const TEST_QUESTION_COUNT = 10;
